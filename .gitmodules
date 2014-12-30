@@ -1,0 +1,3 @@
+[submodule "js/StorageEvents"]
+	path = js/StorageEvents
+	url = https://github.com/Commander-lol/StorageEvents

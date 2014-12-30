@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Storage Event Test</title>
+        <meta charset = "utf-8">
+    </head>
+
+    <body>
+        <div id="testContent">
+
+        </div>
+        <script type="text/javascript" src="js/StorageEvents.js"></script>
+        <script>
+            storage.listen(function (e) {
+                console.log(e.key + ":\n\tOld Value: " + e.oldValue + "\n\tNew Value: " + e.newValue);
+                console.log(e);
+                document.getElementById("testContent").innerHTML += "<div>" + e + "</div>";
+            });
+            storage.setItem("example", "Test Value");
+            storage.setItem("example", "New Test Value");
+            storage.removeItem("example");
+        </script>
+    </body>
+
+</html>
