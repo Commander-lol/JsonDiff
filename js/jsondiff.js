@@ -6,7 +6,7 @@
     var isJson = function (obj) {
             try {
                 JSON.parse(obj);
-                return true;
+                return obj !== null && typeof obj !== "undefined";
             } catch (e) {
                 return false;
             }
@@ -28,7 +28,7 @@
                 diffstore = storage;
             };
             this.getDiff = function (key) {
-                return JSON.parse(diffstore.getItem("[dif]" + key));
+                return JSON.parse(diffstore.getItem("[dif]" + key)) || {diffs: []};
             };
             this.setDiff = function (key, fullDiff) {
                 diffstore.setItem("[dif]" + key, fullDiff);
